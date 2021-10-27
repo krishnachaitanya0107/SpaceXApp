@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/baseFragment"
         android:name="com.example.space_xapp.ui.BaseFragment"
-        android:label="BaseFragment" />
+        android:label="Home" />
 
 
 </navigation>
