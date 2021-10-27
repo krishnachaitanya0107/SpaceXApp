@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.space_xapp.R
 import com.example.space_xapp.data.Crew
 import com.example.space_xapp.databinding.SingleCrewItemLayoutBinding
 
@@ -33,6 +34,7 @@ class CrewAdapter : ListAdapter<Crew, CrewAdapter.ViewHolder>(CrewComparator()) 
                 Glide
                     .with(crewImage)
                     .load(crew.image)
+                    .placeholder(R.drawable.ic_person_icon)
                     .into(crewImage)
 
             }

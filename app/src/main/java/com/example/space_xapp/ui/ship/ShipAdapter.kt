@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.space_xapp.R
 import com.example.space_xapp.data.Ship
 import com.example.space_xapp.databinding.SingleShipItemLayoutBinding
 
@@ -53,6 +54,7 @@ class ShipAdapter : ListAdapter<Ship, ShipAdapter.ViewHolder>(ShipComparator()) 
                     Glide
                         .with(shipImage)
                         .load(ship.image)
+                        .placeholder(R.drawable.ic_directions_boat_icon)
                         .into(shipImage)
                 }
 
