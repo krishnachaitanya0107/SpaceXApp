@@ -12,11 +12,25 @@ import com.example.space_xapp.R
 import com.example.space_xapp.data.Crew
 import com.example.space_xapp.databinding.SingleCrewItemLayoutBinding
 
-class CrewAdapter : ListAdapter<Crew, CrewAdapter.ViewHolder>(CrewComparator()) {
+class CrewAdapter(private val listener: OnItemClickListener) :
+    ListAdapter<Crew, CrewAdapter.ViewHolder>(CrewComparator()) {
 
 
-    class ViewHolder(private val binding: SingleCrewItemLayoutBinding) :
+    inner class ViewHolder(private val binding: SingleCrewItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = getItem(position)
+                    if (item != null) {
+                        listener.onItemClick(item)
+                    }
+                }
+            }
+        }
+
         fun bind(crew: Crew) {
             binding.apply {
 
@@ -52,6 +66,10 @@ class CrewAdapter : ListAdapter<Crew, CrewAdapter.ViewHolder>(CrewComparator()) 
         if (curItem != null) {
             holder.bind(curItem)
         }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(crew: Crew)
     }
 
     class CrewComparator : DiffUtil.ItemCallback<Crew>() {

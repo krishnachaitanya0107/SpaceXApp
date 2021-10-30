@@ -5,15 +5,18 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.space_xapp.R
+import com.example.space_xapp.data.Ship
 import com.example.space_xapp.databinding.FragmentShipBinding
+import com.example.space_xapp.ui.BaseFragmentDirections
 import com.example.space_xapp.ui.crew.CrewViewModel
 import com.example.space_xapp.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ShipFragment : Fragment(R.layout.fragment_ship) {
+class ShipFragment : Fragment(R.layout.fragment_ship) , ShipAdapter.OnItemClickListener {
 
     private var _binding:FragmentShipBinding?=null
     private val binding:FragmentShipBinding get() = _binding!!
@@ -29,7 +32,7 @@ class ShipFragment : Fragment(R.layout.fragment_ship) {
 
         _binding= FragmentShipBinding.bind(view)
 
-        val shipAdapter=ShipAdapter()
+        val shipAdapter=ShipAdapter(this)
 
         binding.apply {
             recyclerView.apply {
@@ -52,6 +55,11 @@ class ShipFragment : Fragment(R.layout.fragment_ship) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(ship: Ship) {
+        val action=BaseFragmentDirections.actionBaseFragmentToShipDetailsFragment(ship)
+        findNavController().navigate(action)
     }
 
 }

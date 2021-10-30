@@ -1,8 +1,11 @@
 package com.example.space_xapp.data
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "crew")
 data class Crew(
     @PrimaryKey var id: String,
@@ -11,4 +14,4 @@ data class Crew(
     var status: String,
     var wikipedia: String,
     var image: String
-)
+) : Parcelable

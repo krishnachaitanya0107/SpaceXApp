@@ -12,7 +12,7 @@ import com.example.space_xapp.util.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class BaseFragment : Fragment(R.layout.fragment_base) {
+class BaseFragment : Fragment() {
 
     var _binding:FragmentBaseBinding?=null
     val binding:FragmentBaseBinding get() = _binding!!

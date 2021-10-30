@@ -14,10 +14,23 @@ import com.example.space_xapp.R
 import com.example.space_xapp.data.Ship
 import com.example.space_xapp.databinding.SingleShipItemLayoutBinding
 
-class ShipAdapter : ListAdapter<Ship, ShipAdapter.ViewHolder>(ShipComparator()) {
+class ShipAdapter (private val listener: OnItemClickListener) :
+    ListAdapter<Ship, ShipAdapter.ViewHolder>(ShipComparator()) {
 
-    class ViewHolder(private val binding: SingleShipItemLayoutBinding) :
+    inner class ViewHolder(private val binding: SingleShipItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = getItem(position)
+                    if (item != null) {
+                        listener.onItemClick(item)
+                    }
+                }
+            }
+        }
 
         fun bind(ship: Ship) {
             binding.apply {
@@ -34,8 +47,12 @@ class ShipAdapter : ListAdapter<Ship, ShipAdapter.ViewHolder>(ShipComparator()) 
                 shipYearBuilt.text=ship.year_built.toString()
 
                 var roles=""
-                for(role in ship.roles){
-                    roles+=("$role\n")
+                for(i in 0 until ship.roles.size){
+                    roles += if(i==ship.roles.size-1){
+                        ("${ship.roles[i]}\n")
+                    } else {
+                        ("${ship.roles[i]} ,\n")
+                    }
                 }
                 shipRoles.text=roles
 
@@ -75,6 +92,11 @@ class ShipAdapter : ListAdapter<Ship, ShipAdapter.ViewHolder>(ShipComparator()) 
             holder.bind(curItem)
         }
     }
+
+    interface OnItemClickListener {
+        fun onItemClick(ship: Ship)
+    }
+
 
     class ShipComparator : DiffUtil.ItemCallback<Ship>() {
         override fun areItemsTheSame(oldItem: Ship, newItem: Ship): Boolean {
