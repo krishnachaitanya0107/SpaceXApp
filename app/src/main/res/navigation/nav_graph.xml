@@ -12,9 +12,9 @@
 
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.space_xapp.ui.crew.DetailsFragment"
+        android:name="com.example.space_xapp.ui.crew.CrewDetailsFragment"
         android:label="Details"
-        tools:layout="@layout/fragment_crew_details" >
+        tools:layout="@layout/fragment_crew_details">
         <argument
             android:name="crew"
             app:argType="com.example.space_xapp.data.Crew" />
@@ -39,7 +39,7 @@
         android:id="@+id/shipDetailsFragment"
         android:name="com.example.space_xapp.ui.ship.ShipDetailsFragment"
         android:label="Ship Details"
-        tools:layout="@layout/fragment_ship_details" >
+        tools:layout="@layout/fragment_ship_details">
         <argument
             android:name="ship"
             app:argType="com.example.space_xapp.data.Ship" />

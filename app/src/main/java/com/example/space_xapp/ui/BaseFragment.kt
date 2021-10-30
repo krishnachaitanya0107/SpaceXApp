@@ -14,12 +14,12 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class BaseFragment : Fragment() {
 
-    var _binding:FragmentBaseBinding?=null
-    val binding:FragmentBaseBinding get() = _binding!!
+    var _binding: FragmentBaseBinding? = null
+    val binding: FragmentBaseBinding get() = _binding!!
 
     lateinit var pagerAdapter: ViewPagerAdapter
     private var mediator: TabLayoutMediator? = null
-    val tabNames= listOf("Crew","Ships")
+    val tabNames = listOf("Crew", "Ships")
 
     private val pageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
 
@@ -34,7 +34,7 @@ class BaseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding= FragmentBaseBinding.inflate(layoutInflater,container,false)
+        _binding = FragmentBaseBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -44,10 +44,10 @@ class BaseFragment : Fragment() {
     }
 
 
+    private fun setUpViewpager() {
 
-    private fun setUpViewpager(){
-
-        pagerAdapter = ViewPagerAdapter(fragmentManager = childFragmentManager, lifecycle = lifecycle)
+        pagerAdapter =
+            ViewPagerAdapter(fragmentManager = childFragmentManager, lifecycle = lifecycle)
 
         binding.viewPager2.isUserInputEnabled = true
 

@@ -6,13 +6,13 @@ import retrofit2.http.GET
 
 interface SpacexApi {
 
-    companion object{
-        const val BASE_URL="https://api.spacexdata.com/v4/"
+    companion object {
+        const val BASE_URL = "https://api.spacexdata.com/v4/"
     }
 
     @GET("crew")
-    suspend fun getCrewData():List<Crew>
+    suspend fun getCrewData(): List<Crew>
 
     @GET("ships")
-    suspend fun getShipsDetails():List<Ship>
+    suspend fun getShipsDetails(): List<Ship>
 }

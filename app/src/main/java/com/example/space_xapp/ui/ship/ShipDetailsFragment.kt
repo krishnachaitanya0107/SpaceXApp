@@ -18,21 +18,21 @@ import com.example.space_xapp.databinding.FragmentShipDetailsBinding
 
 class ShipDetailsFragment : Fragment(R.layout.fragment_ship_details) {
 
-    private var _binding:FragmentShipDetailsBinding?=null
-    private val binding:FragmentShipDetailsBinding get() = _binding!!
+    private var _binding: FragmentShipDetailsBinding? = null
+    private val binding: FragmentShipDetailsBinding get() = _binding!!
 
     val args by navArgs<ShipDetailsFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding= FragmentShipDetailsBinding.bind(view)
+        _binding = FragmentShipDetailsBinding.bind(view)
 
         binding.apply {
-            val ship=args.ship
+            val ship = args.ship
 
             name.text = ship.name
-            status.text = if(ship.active){
+            status.text = if (ship.active) {
                 status.setTextColor(Color.GREEN)
                 "Active"
             } else {
@@ -41,15 +41,15 @@ class ShipDetailsFragment : Fragment(R.layout.fragment_ship_details) {
             }
             yearBuilt.text = ship.year_built.toString()
 
-            var shipRoles=""
-            for(i in 0 until ship.roles.size){
-                shipRoles += if(i==ship.roles.size-1){
+            var shipRoles = ""
+            for (i in 0 until ship.roles.size) {
+                shipRoles += if (i == ship.roles.size - 1) {
                     ("${ship.roles[i]}\n")
                 } else {
                     ("${ship.roles[i]} ,\n")
                 }
             }
-            roles.text=shipRoles
+            roles.text = shipRoles
 
             wikipediaLink.setOnClickListener {
                 val uri = Uri.parse(ship.link)
@@ -70,7 +70,7 @@ class ShipDetailsFragment : Fragment(R.layout.fragment_ship_details) {
                         target: Target<Drawable>?,
                         isFirstResource: Boolean
                     ): Boolean {
-                        progressBar.visibility= View.GONE
+                        progressBar.visibility = View.GONE
                         return false
                     }
 
@@ -82,11 +82,11 @@ class ShipDetailsFragment : Fragment(R.layout.fragment_ship_details) {
                         isFirstResource: Boolean
                     ): Boolean {
                         progressBar.visibility = View.GONE
-                        name.visibility=View.VISIBLE
-                        status.visibility=View.VISIBLE
-                        yearBuilt.visibility=View.VISIBLE
-                        roles.visibility=View.VISIBLE
-                        wikipediaLink.visibility=View.VISIBLE
+                        name.visibility = View.VISIBLE
+                        status.visibility = View.VISIBLE
+                        yearBuilt.visibility = View.VISIBLE
+                        roles.visibility = View.VISIBLE
+                        wikipediaLink.visibility = View.VISIBLE
 
                         return false
                     }

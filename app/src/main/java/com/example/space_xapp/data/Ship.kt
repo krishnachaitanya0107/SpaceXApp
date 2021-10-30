@@ -13,9 +13,9 @@ data class Ship(
     @PrimaryKey var id: String,
     var name: String,
     var image: String?,
-    var active:Boolean,
-    var year_built:Int,
+    var active: Boolean,
+    var year_built: Int,
     @TypeConverters(Converters::class)
-    var roles:ArrayList<String>,
-    var link:String?
-):Parcelable
+    var roles: ArrayList<String>,
+    var link: String?
+) : Parcelable

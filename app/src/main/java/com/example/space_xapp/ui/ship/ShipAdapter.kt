@@ -14,7 +14,7 @@ import com.example.space_xapp.R
 import com.example.space_xapp.data.Ship
 import com.example.space_xapp.databinding.SingleShipItemLayoutBinding
 
-class ShipAdapter (private val listener: OnItemClickListener) :
+class ShipAdapter(private val listener: OnItemClickListener) :
     ListAdapter<Ship, ShipAdapter.ViewHolder>(ShipComparator()) {
 
     inner class ViewHolder(private val binding: SingleShipItemLayoutBinding) :
@@ -34,9 +34,9 @@ class ShipAdapter (private val listener: OnItemClickListener) :
 
         fun bind(ship: Ship) {
             binding.apply {
-                shipName.text=ship.name
+                shipName.text = ship.name
 
-                shipStatus.text = if(ship.active){
+                shipStatus.text = if (ship.active) {
                     shipStatus.setTextColor(Color.GREEN)
                     "Active"
                 } else {
@@ -44,19 +44,19 @@ class ShipAdapter (private val listener: OnItemClickListener) :
                     "InActive"
                 }
 
-                shipYearBuilt.text=ship.year_built.toString()
+                shipYearBuilt.text = ship.year_built.toString()
 
-                var roles=""
-                for(i in 0 until ship.roles.size){
-                    roles += if(i==ship.roles.size-1){
+                var roles = ""
+                for (i in 0 until ship.roles.size) {
+                    roles += if (i == ship.roles.size - 1) {
                         ("${ship.roles[i]}\n")
                     } else {
                         ("${ship.roles[i]} ,\n")
                     }
                 }
-                shipRoles.text=roles
+                shipRoles.text = roles
 
-                if(!ship.link.isNullOrEmpty()){
+                if (!ship.link.isNullOrEmpty()) {
                     wikipediaLink.setOnClickListener {
                         val uri = Uri.parse(ship.link)
                         val intent = Intent(Intent.ACTION_VIEW, uri)
@@ -64,10 +64,10 @@ class ShipAdapter (private val listener: OnItemClickListener) :
                         root.context.startActivity(intent)
                     }
                 } else {
-                    wikipediaLink.visibility= View.GONE
+                    wikipediaLink.visibility = View.GONE
                 }
 
-                if(!ship.image.isNullOrEmpty()){
+                if (!ship.image.isNullOrEmpty()) {
                     Glide
                         .with(shipImage)
                         .load(ship.image)

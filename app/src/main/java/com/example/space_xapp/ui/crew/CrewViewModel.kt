@@ -13,7 +13,7 @@ class CrewViewModel @Inject constructor(
     repository: SpacexRepository
 ) : ViewModel() {
 
-    val crew=repository.getCrew().asLiveData()
+    val crew = repository.getCrew().asLiveData()
 
     /*private val crewLiveData= MutableLiveData<List<Crew>>()
     val crew : LiveData<List<Crew>> = crewLiveData

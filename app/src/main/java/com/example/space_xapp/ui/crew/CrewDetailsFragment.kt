@@ -15,7 +15,7 @@ import com.bumptech.glide.request.target.Target
 import com.example.space_xapp.R
 import com.example.space_xapp.databinding.FragmentCrewDetailsBinding
 
-class DetailsFragment : Fragment(R.layout.fragment_crew_details) {
+class CrewDetailsFragment : Fragment(R.layout.fragment_crew_details) {
 
     private var _binding:FragmentCrewDetailsBinding?=null
     private val binding:FragmentCrewDetailsBinding get() = _binding!!

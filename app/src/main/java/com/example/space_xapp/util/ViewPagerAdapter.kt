@@ -7,12 +7,13 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.space_xapp.ui.crew.CrewFragment
 import com.example.space_xapp.ui.ship.ShipFragment
 
-class ViewPagerAdapter(private val list: MutableList<Fragment> = mutableListOf(),
-                       fragmentManager: FragmentManager,
-                       lifecycle: Lifecycle
-): FragmentStateAdapter(fragmentManager , lifecycle) {
+class ViewPagerAdapter(
+    private val list: MutableList<Fragment> = mutableListOf(),
+    fragmentManager: FragmentManager,
+    lifecycle: Lifecycle
+) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
-    private val pageIds= mutableListOf<Long>()
+    private val pageIds = mutableListOf<Long>()
 
     override fun getItemCount(): Int {
         return list.size
@@ -22,7 +23,7 @@ class ViewPagerAdapter(private val list: MutableList<Fragment> = mutableListOf()
         return list[position]
     }
 
-    fun addFragments(){
+    fun addFragments() {
         pageIds.clear()
         list.add(CrewFragment.getInstance())
         list.add(ShipFragment.getInstance())
@@ -30,7 +31,7 @@ class ViewPagerAdapter(private val list: MutableList<Fragment> = mutableListOf()
         notifyDataSetChanged()
     }
 
-    fun removeAllFragments(){
+    fun removeAllFragments() {
         list.clear()
         pageIds.clear()
         notifyDataSetChanged()

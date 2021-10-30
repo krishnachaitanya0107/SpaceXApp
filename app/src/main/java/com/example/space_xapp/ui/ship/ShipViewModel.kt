@@ -10,8 +10,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ShipViewModel @Inject constructor(
     repository: SpacexRepository
-) : ViewModel()  {
+) : ViewModel() {
 
-    val ships=repository.getShips().asLiveData()
+    val ships = repository.getShips().asLiveData()
 
 }

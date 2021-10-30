@@ -16,36 +16,36 @@ import com.example.space_xapp.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ShipFragment : Fragment(R.layout.fragment_ship) , ShipAdapter.OnItemClickListener {
+class ShipFragment : Fragment(R.layout.fragment_ship), ShipAdapter.OnItemClickListener {
 
-    private var _binding:FragmentShipBinding?=null
-    private val binding:FragmentShipBinding get() = _binding!!
+    private var _binding: FragmentShipBinding? = null
+    private val binding: FragmentShipBinding get() = _binding!!
 
     private val viewModel: ShipViewModel by viewModels()
 
     companion object {
-        fun getInstance()=ShipFragment()
+        fun getInstance() = ShipFragment()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding= FragmentShipBinding.bind(view)
+        _binding = FragmentShipBinding.bind(view)
 
-        val shipAdapter=ShipAdapter(this)
+        val shipAdapter = ShipAdapter(this)
 
         binding.apply {
             recyclerView.apply {
                 adapter = shipAdapter
                 layoutManager = LinearLayoutManager(requireContext())
             }
-            viewModel.ships.observe(viewLifecycleOwner){ result->
+            viewModel.ships.observe(viewLifecycleOwner) { result ->
 
                 shipAdapter.submitList(result.data)
 
                 progressBar.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()
                 errorMessage.isVisible = result is Resource.Error && result.data.isNullOrEmpty()
-                errorMessage.text= result.error?.localizedMessage ?: ""
+                errorMessage.text = result.error?.localizedMessage ?: ""
             }
         }
 
@@ -58,7 +58,7 @@ class ShipFragment : Fragment(R.layout.fragment_ship) , ShipAdapter.OnItemClickL
     }
 
     override fun onItemClick(ship: Ship) {
-        val action=BaseFragmentDirections.actionBaseFragmentToShipDetailsFragment(ship)
+        val action = BaseFragmentDirections.actionBaseFragmentToShipDetailsFragment(ship)
         findNavController().navigate(action)
     }
 

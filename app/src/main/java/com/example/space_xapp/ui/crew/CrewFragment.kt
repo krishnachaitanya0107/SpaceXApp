@@ -15,7 +15,7 @@ import com.example.space_xapp.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CrewFragment : Fragment(R.layout.fragment_crew) , CrewAdapter.OnItemClickListener{
+class CrewFragment : Fragment(R.layout.fragment_crew), CrewAdapter.OnItemClickListener {
 
     private var _binding: FragmentCrewBinding? = null
     private val binding: FragmentCrewBinding get() = _binding!!
@@ -44,7 +44,7 @@ class CrewFragment : Fragment(R.layout.fragment_crew) , CrewAdapter.OnItemClickL
 
                 progressBar.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()
                 errorMessage.isVisible = result is Resource.Error && result.data.isNullOrEmpty()
-                errorMessage.text= result.error?.localizedMessage ?: ""
+                errorMessage.text = result.error?.localizedMessage ?: ""
             }
 
         }
