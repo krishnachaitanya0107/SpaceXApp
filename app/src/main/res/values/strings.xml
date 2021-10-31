@@ -1,1 +1,6 @@
-<resources></resources>
+<resources>
+
+    <string name="open_nav_drawer">Open Navigation Drawer</string>
+    <string name="close_nav_drawer">Close Navigation Drawer</string>
+
+</resources>

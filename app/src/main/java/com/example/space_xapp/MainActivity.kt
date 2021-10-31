@@ -2,6 +2,8 @@ package com.example.space_xapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -37,15 +39,34 @@ class MainActivity : AppCompatActivity() {
                 setOf(R.id.homeFragment, R.id.infoFragment),
                 drawerLayout
             )
+
             setupActionBarWithNavController(navController, appBarConfiguration)
 
             bottomNav.setupWithNavController(navController)
-
             navView.setupWithNavController(navController)
+
+            val toggle=ActionBarDrawerToggle(
+                this@MainActivity,
+                drawerLayout,
+                toolbar,
+                R.string.open_nav_drawer,
+                R.string.close_nav_drawer
+            )
+
+            drawerLayout.addDrawerListener(toggle)
+            toggle.syncState()
 
             setContentView(root)
         }
 
+    }
+
+    override fun onBackPressed() {
+        if(binding.drawerLayout.isDrawerOpen(GravityCompat.START)){
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
