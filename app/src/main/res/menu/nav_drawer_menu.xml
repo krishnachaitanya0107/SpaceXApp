@@ -18,9 +18,9 @@
     <item android:title="Other">
         <menu>
             <item
-                android:id="@+id/other"
-                android:icon="@drawable/ic_home"
-                android:title="Other" />
+                android:id="@+id/settingsFragment"
+                android:icon="@drawable/ic_settings"
+                android:title="Settings" />
         </menu>
     </item>
 

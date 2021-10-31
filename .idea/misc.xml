@@ -6,14 +6,20 @@
         <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/drawable/gradient.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/drawable/ic_directions_boat_icon.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/drawable/ic_person_icon.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
         <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/activity_splash.xml" value="0.1796875" />
         <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/fragment_base.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/fragment_crew.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/fragment_crew_details.xml" value="0.17028985507246377" />
+        <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/fragment_info.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/fragment_settings.xml" value="0.15353260869565216" />
         <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/fragment_ship.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/fragment_ship_details.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/nav_header.xml" value="0.15353260869565216" />
         <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/single_crew_item_layout.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/layout/single_ship_item_layout.xml" value="0.17028985507246377" />
+        <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/menu/drawer_bottom_nav_menu.xml" value="0.1796875" />
+        <entry key="..\:/Users/Paparao/StudioProjects/SpaceXApp/app/src/main/res/menu/nav_drawer_menu.xml" value="0.1796875" />
       </map>
     </option>
   </component>
