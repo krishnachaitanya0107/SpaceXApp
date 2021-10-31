@@ -3,21 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/baseFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/crewFragment"
         android:name="com.example.space_xapp.ui.crew.CrewFragment"
-        android:label="SpaceX Crew" />
+        android:label="SpaceX Crew"
+        tools:layout="@layout/fragment_crew"/>
 
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.space_xapp.ui.crew.CrewDetailsFragment"
-        android:label="Details"
+        android:label="{crewName}"
         tools:layout="@layout/fragment_crew_details">
         <argument
             android:name="crew"
             app:argType="com.example.space_xapp.data.Crew" />
+        <argument
+            android:name="crewName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/shipFragment"
@@ -25,9 +29,10 @@
         android:label="Ship"
         tools:layout="@layout/fragment_ship" />
     <fragment
-        android:id="@+id/baseFragment"
-        android:name="com.example.space_xapp.ui.BaseFragment"
-        android:label="Home">
+        android:id="@+id/homeFragment"
+        android:name="com.example.space_xapp.ui.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_baseFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
@@ -38,12 +43,20 @@
     <fragment
         android:id="@+id/shipDetailsFragment"
         android:name="com.example.space_xapp.ui.ship.ShipDetailsFragment"
-        android:label="Ship Details"
+        android:label="{shipName}"
         tools:layout="@layout/fragment_ship_details">
         <argument
             android:name="ship"
             app:argType="com.example.space_xapp.data.Ship" />
+        <argument
+            android:name="shipName"
+            app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.space_xapp.ui.InfoFragment"
+        android:label="Info"
+        tools:layout="@layout/fragment_info" />
 
 
 </navigation>

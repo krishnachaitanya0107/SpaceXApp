@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.space_xapp.R
 import com.example.space_xapp.data.Crew
 import com.example.space_xapp.databinding.FragmentCrewBinding
-import com.example.space_xapp.ui.BaseFragmentDirections
+import com.example.space_xapp.ui.HomeFragmentDirections
 import com.example.space_xapp.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,8 +49,6 @@ class CrewFragment : Fragment(R.layout.fragment_crew), CrewAdapter.OnItemClickLi
 
         }
 
-        setHasOptionsMenu(false)
-
     }
 
     override fun onDestroyView() {
@@ -59,7 +57,7 @@ class CrewFragment : Fragment(R.layout.fragment_crew), CrewAdapter.OnItemClickLi
     }
 
     override fun onItemClick(crew: Crew) {
-        val action = BaseFragmentDirections.actionBaseFragmentToDetailsFragment(crew)
+        val action = HomeFragmentDirections.actionBaseFragmentToDetailsFragment(crew,crew.name)
         findNavController().navigate(action)
     }
 

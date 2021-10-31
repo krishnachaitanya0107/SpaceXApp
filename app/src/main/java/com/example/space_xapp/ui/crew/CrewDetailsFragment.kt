@@ -20,7 +20,7 @@ class CrewDetailsFragment : Fragment(R.layout.fragment_crew_details) {
     private var _binding:FragmentCrewDetailsBinding?=null
     private val binding:FragmentCrewDetailsBinding get() = _binding!!
 
-    private val args by navArgs<DetailsFragmentArgs>()
+    private val args by navArgs<CrewDetailsFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

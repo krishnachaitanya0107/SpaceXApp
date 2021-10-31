@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.space_xapp.R
 import com.example.space_xapp.data.Ship
 import com.example.space_xapp.databinding.FragmentShipBinding
-import com.example.space_xapp.ui.BaseFragmentDirections
-import com.example.space_xapp.ui.crew.CrewViewModel
+import com.example.space_xapp.ui.HomeFragmentDirections
 import com.example.space_xapp.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,7 +48,6 @@ class ShipFragment : Fragment(R.layout.fragment_ship), ShipAdapter.OnItemClickLi
             }
         }
 
-        setHasOptionsMenu(false)
     }
 
     override fun onDestroyView() {
@@ -58,7 +56,7 @@ class ShipFragment : Fragment(R.layout.fragment_ship), ShipAdapter.OnItemClickLi
     }
 
     override fun onItemClick(ship: Ship) {
-        val action = BaseFragmentDirections.actionBaseFragmentToShipDetailsFragment(ship)
+        val action = HomeFragmentDirections.actionBaseFragmentToShipDetailsFragment(ship,ship.name)
         findNavController().navigate(action)
     }
 
