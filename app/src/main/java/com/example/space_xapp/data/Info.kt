@@ -12,24 +12,23 @@ import kotlinx.parcelize.Parcelize
 @Entity(tableName = "info")
 data class Info(
     @PrimaryKey var id: String,
-    var summary: String,
     var name: String,
+    var founded: Int,
     var founder: String,
     var ceo: String,
-    var founded: Int,
     var employees: Int,
     @TypeConverters(Converters::class)
-    var links: LinksObject,
+    var headquarters: HeadQuarters,
+    var summary: String,
     @TypeConverters(Converters::class)
-    var headquarters: HeadQuarters
-
+    var links: LinksObject
 ) : Parcelable
 
 @Parcelize
 data class LinksObject(
     var website: String,
     var twitter: String,
-    var flickr:String
+    var flickr: String
 ) : Parcelable
 
 @Parcelize

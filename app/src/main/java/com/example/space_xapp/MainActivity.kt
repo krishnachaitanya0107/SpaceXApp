@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             bottomNav.setupWithNavController(navController)
             navView.setupWithNavController(navController)
 
-            val toggle=ActionBarDrawerToggle(
+            /*val toggle=ActionBarDrawerToggle(
                 this@MainActivity,
                 drawerLayout,
                 toolbar,
@@ -53,8 +53,10 @@ class MainActivity : AppCompatActivity() {
                 R.string.close_nav_drawer
             )
 
+            // https://stackoverflow.com/questions/38432973/how-to-hide-navigation-drawer-when-opening-certain-fragment
+
             drawerLayout.addDrawerListener(toggle)
-            toggle.syncState()
+            toggle.syncState()*/
 
             setContentView(root)
         }
