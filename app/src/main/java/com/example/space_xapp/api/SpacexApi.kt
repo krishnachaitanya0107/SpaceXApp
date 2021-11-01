@@ -1,6 +1,7 @@
 package com.example.space_xapp.api
 
 import com.example.space_xapp.data.Crew
+import com.example.space_xapp.data.Info
 import com.example.space_xapp.data.Ship
 import retrofit2.http.GET
 
@@ -15,4 +16,8 @@ interface SpacexApi {
 
     @GET("ships")
     suspend fun getShipsDetails(): List<Ship>
+
+    @GET("company")
+    suspend fun getCompanyInfo() : Info
+
 }

@@ -13,6 +13,7 @@ class SpacexRepository @Inject constructor(
 ) {
     private val crewDao = db.crewDao()
     private val shipDao = db.shipDao()
+    private val infoDao=db.infoDao()
 
     fun getCrew() = networkBoundResource(
         query = {
@@ -42,6 +43,22 @@ class SpacexRepository @Inject constructor(
             db.withTransaction {
                 shipDao.deleteAllShipsData()
                 shipDao.insertShipData(ship)
+            }
+        }
+    )
+
+    fun getCompanyInfo() = networkBoundResource(
+        query = {
+            infoDao.getAllInfo()
+        },
+        fetch = {
+            delay(300)
+            spacexApi.getCompanyInfo()
+        },
+        safeFetchResult = { info ->
+            db.withTransaction {
+                infoDao.deleteAllInfo()
+                infoDao.insertInfo(info)
             }
         }
     )
