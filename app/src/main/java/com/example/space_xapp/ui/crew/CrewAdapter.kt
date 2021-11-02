@@ -49,6 +49,7 @@ class CrewAdapter(private val listener: OnItemClickListener) :
                     .with(crewImage)
                     .load(crew.image)
                     .placeholder(R.drawable.ic_person_icon)
+                    .error(R.drawable.ic_person_icon)
                     .into(crewImage)
 
             }

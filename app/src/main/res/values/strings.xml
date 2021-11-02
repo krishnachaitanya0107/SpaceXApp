@@ -2,6 +2,8 @@
 
     <string name="spaceXImageUrl">https://www.spaceflightinsider.com/wp-content/uploads/2018/06/SpaceX-Logo-655x238.png</string>
 
+    <string name="unknown_error_msg">An Unknown Error Occurred</string>
+
     <string name="open_nav_drawer">Open Navigation Drawer</string>
     <string name="close_nav_drawer">Close Navigation Drawer</string>
 

@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -61,7 +62,7 @@ class ShipDetailsFragment : Fragment(R.layout.fragment_ship_details) {
             Glide
                 .with(image)
                 .load(ship.image)
-                .placeholder(R.drawable.ic_person_icon)
+                .placeholder(R.drawable.ic_directions_boat_icon)
                 .listener(object :
                     RequestListener<Drawable> {
                     override fun onLoadFailed(
@@ -71,6 +72,18 @@ class ShipDetailsFragment : Fragment(R.layout.fragment_ship_details) {
                         isFirstResource: Boolean
                     ): Boolean {
                         progressBar.visibility = View.GONE
+                        if (e != null) {
+                            Toast.makeText(requireContext(), e.localizedMessage, Toast.LENGTH_SHORT)
+                                .show()
+                        } else {
+                            Toast.makeText(
+                                requireContext(), getString(R.string.unknown_error_msg),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
+                        group.visibility = View.VISIBLE
+
                         return false
                     }
 
@@ -82,11 +95,7 @@ class ShipDetailsFragment : Fragment(R.layout.fragment_ship_details) {
                         isFirstResource: Boolean
                     ): Boolean {
                         progressBar.visibility = View.GONE
-                        name.visibility = View.VISIBLE
-                        status.visibility = View.VISIBLE
-                        yearBuilt.visibility = View.VISIBLE
-                        roles.visibility = View.VISIBLE
-                        wikipediaLink.visibility = View.VISIBLE
+                        group.visibility = View.VISIBLE
 
                         return false
                     }

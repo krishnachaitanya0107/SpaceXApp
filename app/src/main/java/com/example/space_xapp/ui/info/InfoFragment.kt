@@ -19,22 +19,22 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class InfoFragment : Fragment(R.layout.fragment_info) {
 
-    private var _binding:FragmentInfoBinding?=null
-    private val binding:FragmentInfoBinding get() = _binding!!
+    private var _binding: FragmentInfoBinding? = null
+    private val binding: FragmentInfoBinding get() = _binding!!
 
-    private val viewModel:InfoViewModel by viewModels()
+    private val viewModel: InfoViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding= FragmentInfoBinding.bind(view)
+        _binding = FragmentInfoBinding.bind(view)
 
 
         binding.apply {
             Glide
                 .with(logo)
                 .load(getString(R.string.spaceXImageUrl))
-                .listener(object :RequestListener<Drawable>{
+                .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
                         e: GlideException?,
                         model: Any?,
@@ -43,8 +43,17 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
                     ): Boolean {
                         progressBar1.visibility = View.GONE
                         if (e != null) {
-                            errorMsg.text=e.localizedMessage
+                            Toast.makeText(requireContext(), e.localizedMessage, Toast.LENGTH_SHORT)
+                                .show()
+                        } else {
+                            Toast.makeText(
+                                requireContext(), getString(R.string.unknown_error_msg),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
+
+                        group.visibility = View.VISIBLE
+
                         return false
                     }
 
@@ -56,34 +65,35 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
                         isFirstResource: Boolean
                     ): Boolean {
                         progressBar1.visibility = View.GONE
-                        group.visibility=View.VISIBLE
+                        group.visibility = View.VISIBLE
 
                         return false
                     }
                 })
                 .into(logo)
 
-            viewModel.info.observe(viewLifecycleOwner){ result->
+            viewModel.info.observe(viewLifecycleOwner) { result ->
 
-                var companyInfo=result.data
+                var companyInfo = result.data
 
                 if (companyInfo != null) {
-                    name.text=companyInfo.name
-                    founded.text= companyInfo.founded.toString()
-                    founder.text= companyInfo.founder
-                    ceo.text=companyInfo.ceo
-                    noOfEmployees.text=companyInfo.employees.toString()
+                    name.text = companyInfo.name
+                    founded.text = companyInfo.founded.toString()
+                    founder.text = companyInfo.founder
+                    ceo.text = companyInfo.ceo
+                    noOfEmployees.text = companyInfo.employees.toString()
 
-                    headquarters.text=
+                    headquarters.text =
                         "${companyInfo.headquarters.address} , ${companyInfo.headquarters.city} , ${companyInfo.headquarters.state}"
 
-                    summary.text=companyInfo.summary
+                    summary.text = companyInfo.summary
 
-                    links.text=
+                    links.text =
                         "${companyInfo.links.website} \n\n ${companyInfo.links.twitter} \n\n ${companyInfo.links.flickr}"
 
                 } else {
-                    Toast.makeText(requireContext(),"Something went wrong",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT)
+                        .show()
                 }
 
 

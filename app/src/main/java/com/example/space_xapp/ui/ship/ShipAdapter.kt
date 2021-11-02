@@ -67,13 +67,12 @@ class ShipAdapter(private val listener: OnItemClickListener) :
                     wikipediaLink.visibility = View.GONE
                 }
 
-                if (!ship.image.isNullOrEmpty()) {
                     Glide
                         .with(shipImage)
                         .load(ship.image)
                         .placeholder(R.drawable.ic_directions_boat_icon)
+                        .error(R.drawable.ic_directions_boat_icon)
                         .into(shipImage)
-                }
 
             }
         }

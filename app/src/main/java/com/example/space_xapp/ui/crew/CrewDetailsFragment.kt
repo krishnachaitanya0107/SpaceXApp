@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -17,19 +18,19 @@ import com.example.space_xapp.databinding.FragmentCrewDetailsBinding
 
 class CrewDetailsFragment : Fragment(R.layout.fragment_crew_details) {
 
-    private var _binding:FragmentCrewDetailsBinding?=null
-    private val binding:FragmentCrewDetailsBinding get() = _binding!!
+    private var _binding: FragmentCrewDetailsBinding? = null
+    private val binding: FragmentCrewDetailsBinding get() = _binding!!
 
     private val args by navArgs<CrewDetailsFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding= FragmentCrewDetailsBinding.bind(view)
+        _binding = FragmentCrewDetailsBinding.bind(view)
 
         binding.apply {
 
-            val crew=args.crew
+            val crew = args.crew
 
             name.text = crew.name
             status.text = crew.status
@@ -54,7 +55,20 @@ class CrewDetailsFragment : Fragment(R.layout.fragment_crew_details) {
                         target: Target<Drawable>?,
                         isFirstResource: Boolean
                     ): Boolean {
-                        progressBar.visibility= View.GONE
+                        progressBar.visibility = View.GONE
+                        if (e != null) {
+                            Toast.makeText(requireContext(), e.localizedMessage, Toast.LENGTH_SHORT)
+                                .show()
+                        } else {
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.unknown_error_msg),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
+                        group.visibility = View.VISIBLE
+
                         return false
                     }
 
@@ -66,10 +80,7 @@ class CrewDetailsFragment : Fragment(R.layout.fragment_crew_details) {
                         isFirstResource: Boolean
                     ): Boolean {
                         progressBar.visibility = View.GONE
-                        name.visibility=View.VISIBLE
-                        status.visibility=View.VISIBLE
-                        agency.visibility=View.VISIBLE
-                        wikipediaLink.visibility=View.VISIBLE
+                        group.visibility = View.VISIBLE
 
                         return false
                     }
