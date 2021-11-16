@@ -17,6 +17,7 @@ An App that displays information about SpaceX crew members and ships .
 - Navigation Component
 - Retrofit ( To handle network requests )
 - Glide ( Image Loading Library )
+- Lottie Animations
 
 # Rest Api Docs
 
