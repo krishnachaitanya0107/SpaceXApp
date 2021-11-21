@@ -1,20 +1,28 @@
 # Space-X App
 
-Display's information about SpaceX
-crew members(look for ‘Crew’ section in rest api docs) and ships (look for ‘Ships’ section in rest api docs) by consuming a rest api and storing the updated
-data (using Room Persistence Library and Network Bound Resources) to display data to the user even when the user is offline .
+An App that displays information about SpaceX crew members and ships .
+
+# Features
+
+- Consumes a rest API and stores the updated data offline
+- Follows MVVM Architecture 
+- Uses navigation component to handle navigation drawer & bottom navigation 
 
 # Tools & Technology Used
+
 - Android Studio & Kotlin
-- MVVM Architecture
-- Offline Caching
+- Room Persistence Library
 - Dependency Injection ( Dagger and hilt)
 - Flows & Coroutines
 - Navigation Component
-- Retrofit & Glide
+- Retrofit ( To handle network requests )
+- Glide ( Image Loading Library )
+- Lottie Animations
 
 # Rest Api Docs
 
 Space-X Api Docs
 
 https://github.com/r-spacex/SpaceX-API/blob/master/docs/README.md
+
+look for ‘Crew’ section for crew and look for ‘Ships’ section for ships in rest api docs
