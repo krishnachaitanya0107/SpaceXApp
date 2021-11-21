@@ -9,6 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/dialog_background_color"
         android:padding="16dp">
 
         <androidx.constraintlayout.widget.Guideline

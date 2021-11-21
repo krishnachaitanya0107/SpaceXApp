@@ -15,7 +15,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tabMode="fixed"
-        app:tabPaddingBottom="6dp">
+        app:tabPaddingBottom="6dp"
+        app:tabTextColor="@color/colorPrimary"
+        app:tabIndicatorColor="@color/colorPrimary">
 
     </com.google.android.material.tabs.TabLayout>
 

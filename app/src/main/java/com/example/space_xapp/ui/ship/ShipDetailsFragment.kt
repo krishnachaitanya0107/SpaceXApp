@@ -16,7 +16,9 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.space_xapp.R
 import com.example.space_xapp.databinding.FragmentShipDetailsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ShipDetailsFragment : Fragment(R.layout.fragment_ship_details) {
 
     private var _binding: FragmentShipDetailsBinding? = null

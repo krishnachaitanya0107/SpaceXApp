@@ -7,13 +7,27 @@
     tools:context=".ui.SettingsFragment">
 
     <TextView
+        android:id="@+id/nightModeTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginStart="20dp"
+        android:text="Night Mode :"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/darkModeSwitch"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/darkModeSwitch" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/darkModeSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:checked="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:thumbTint="@color/purple_500"
+        app:trackTint="@color/purple_200"
+        app:useMaterialThemeColors="false" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
