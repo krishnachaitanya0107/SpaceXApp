@@ -2,6 +2,10 @@
 
 An App that displays information about SpaceX crew members and ships .
 
+# Download
+
+Go to [Releases](https://github.com/krishnachaitanya0107/SpaceXApp/releases) to download the latest APK
+
 # Features
 
 - Consumes a REST API to get and display information about Space-X crew members and ships 
